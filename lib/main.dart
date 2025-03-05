@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_tones/home.dart';
+import 'package:music_tones/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: const RingtoneApp(),
+      home: const LandingPage(),
     );
   }
 }
-

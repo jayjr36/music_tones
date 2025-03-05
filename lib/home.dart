@@ -127,7 +127,7 @@ class _RingtoneAppState extends State<RingtoneApp> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF1a202c),
+        backgroundColor: Theme.of(context).colorScheme.primary,
         actions: [
           IconButton(
             icon: Icon(
@@ -155,13 +155,14 @@ class _RingtoneAppState extends State<RingtoneApp> {
                     elevation: 4,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
+                    color: Theme.of(context).colorScheme.surface,
                     child: ListTile(
                       leading: Container(
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Color(0xFF1a202c),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                         child: Icon(
                           Icons.music_note,
@@ -174,23 +175,32 @@ class _RingtoneAppState extends State<RingtoneApp> {
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       subtitle: Text(
                         "Duration: ${song['duration']}",
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurface
+                                .withOpacity(0.6)),
                       ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
                             icon: _currentlyPlayingUrl == song["stream_url"]
-                                ? Icon(Icons.pause_circle)
+                                ? Icon(Icons.pause_circle,
+                                    size: 30,
+                                    color:
+                                        Theme.of(context).colorScheme.primary)
                                 : Icon(
                                     Icons.play_arrow,
                                     size: 30,
-                                    color: Color(0xFF1a202c),
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                             onPressed: () {
                               if (_currentlyPlayingUrl == song["stream_url"]) {
@@ -214,7 +224,7 @@ class _RingtoneAppState extends State<RingtoneApp> {
                             icon: Icon(
                               Icons.download,
                               size: 30,
-                              color: Color(0xFF1a202c),
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                             onPressed: () => downloadSong(
                                 song['download_url'], "${song['title']}.mp3"),
@@ -223,7 +233,7 @@ class _RingtoneAppState extends State<RingtoneApp> {
                             icon: Icon(
                               Icons.notifications,
                               size: 30,
-                              color: Color(0xFF1a202c),
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                             onPressed: () => setRingtone(
                                 song['url'], "${song['title']}.mp3"),

@@ -7,7 +7,7 @@
 
 
     <application
-        android:label="music_tones"
+        android:label="kings tones"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
